@@ -47,10 +47,12 @@ class image_converter:
         
     
         
-        mean_blue =  str(numpy.mean(masked[:, :, 0]))
-        mean_green = str(numpy.mean(masked[:, :, 1]))
-        mean_red = str(numpy.mean(masked[:, :, 2]))
-        self.pub.publish(mean_blue,mean_green,mean_red)
+        mean1 = str(numpy.mean(masked[:, :, 0]))
+        mean2 = str(numpy.mean(masked[:, :, 1]))
+        mean3 = str(numpy.mean(masked[:, :, 2]))
+        
+        mean = ("Blue Mean:" + mean1 + "\n Green Mean:" + mean2 + "\n Red Mean:" + mean3)
+        self.pub.publish(mean)
 
         _, bgr_contours, hierachy = cv2.findContours(
             bgr_thresh.copy(),
@@ -65,7 +67,7 @@ class image_converter:
             a = cv2.contourArea(c)
             if a > 100.0:
                 cv2.drawContours(cv_image, c, -1, (255, 0, 0))
-        print '===='
+        #print '===='
         cv2.imshow("Image window", masked)
         cv2.waitKey(1)
 
