@@ -1,0 +1,8 @@
+prefix=/home/student/AMR-master/workshops/install
+
+Name: commanding_velocity
+Description: Description of commanding_velocity
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/student/AMR-master/workshops/install/lib 
+Requires: 
